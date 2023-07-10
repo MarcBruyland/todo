@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+    <div class="title">
+        <h1 class="header_in_title">Login</h1>
+    </div>
+
+    <!--    <div class="col-md-2">-->
+    <!--        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}-->
+    <!--    </div>-->
+
+     <div class="screen">
+       <form method="POST" action="{{ url_for('login') }}">
+            {{ form.csrf_token }}
+            {{form.email.label}}
+            {{form.email}}
+            <br>
+            {{form.password.label}}
+            {{form.password}}
+            <br>
+            {{form.submit(class="btn btn-primary")}}
+        </form>
+        <BR>
+        <div>
+            New ? Sign up <a href="/signup">here</a>
+        </div>
+        <div class="error_message">
+            {{msg}}
+        </div>
+    </div>
+
+{% endblock content%}
